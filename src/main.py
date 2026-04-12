@@ -25,7 +25,7 @@ def remover_gasto():
         indice = int(input("Digite o índice do gasto para remover: "))
         gastos.pop(indice)
         print("Gasto removido!")
-    except:
+    except Exception:
         print("Índice inválido!")
 
 def calcular_total():
