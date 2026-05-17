@@ -1,90 +1,41 @@
-# 💰 Controle de Gastos Pessoais CLI
+# Controle de Gastos Pessoais CLI
 
-## 📌 Descrição do Problema
+Aplicação desenvolvida em Python para auxiliar no controle de gastos pessoais através de uma interface em linha de comando (CLI).
 
-Muitas pessoas têm dificuldade em controlar seus gastos diários, o que pode levar à desorganização financeira e até ao endividamento. A falta de ferramentas simples e acessíveis dificulta o acompanhamento dos gastos.
+---
 
-## 💡 Solução Proposta
+# Funcionalidades
 
-Este projeto consiste em uma aplicação simples em linha de comando (CLI) que permite ao usuário registrar, visualizar, remover e calcular seus gastos, ajudando no controle financeiro de forma prática e eficiente.
+- Adicionar gastos
+- Listar gastos
+- Remover gastos
+- Calcular total de despesas
+- Consultar cotação do dólar em tempo real
 
-## 🎯 Público-Alvo
+---
 
-Pessoas que desejam organizar suas finanças pessoais de maneira simples, sem a necessidade de aplicativos complexos.
+# Integração com API
 
-## ⚙️ Funcionalidades
+A aplicação utiliza a API pública AwesomeAPI para consultar a cotação atual do dólar.
 
-* Adicionar gasto
-* Listar gastos
-* Remover gasto
-* Calcular total gasto
+API utilizada:
+https://docs.awesomeapi.com.br/api-de-moedas
 
-## 🛠️ Tecnologias Utilizadas
+---
 
-* Python
-* unittest (para testes automatizados)
-* Ruff (linting/análise estática)
+# Tecnologias Utilizadas
 
-## ▶️ Como Instalar
+- Python
+- Requests
+- Pytest
+- Git
+- GitHub Actions
 
-1. Clone o repositório:
+---
 
-```bash
-git clone <SEU_LINK_DO_GITHUB_AQUI>
-```
+# Como Executar o Projeto
 
-2. Acesse a pasta do projeto:
-
-```bash
-cd controle-gastos-cli
-```
-
-3. (Opcional) Crie um ambiente virtual:
+Clone o repositório:
 
 ```bash
-python -m venv venv
-```
-
-4. Ative o ambiente virtual:
-
-* Windows:
-
-```bash
-venv\Scripts\activate
-```
-
-5. Instale as dependências:
-
-```bash
-pip install -r requirements.txt
-```
-
-## ▶️ Como Executar
-
-```bash
-py src/main.py
-```
-
-## 🧪 Como Executar os Testes
-
-```bash
-py -m unittest discover tests
-```
-
-## 🔍 Como Rodar o Lint
-
-```bash
-ruff check .
-```
-
-## 📦 Versão
-
-1.0.0
-
-## 👩‍💻 Autora
-
-Márcia Kamyla Melo Ramos Castro
-
-## 🔗 Repositório
-
-(https://github.com/marciakamyla/controle-gastos-cli)
+git clone https://github.com/marciakamyla/controle-gastos-cli.git
