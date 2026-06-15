@@ -1,36 +1,63 @@
-gastos = []
+from src.banco import (
+    adicionar_gasto,
+    listar_gastos,
+    remover_gasto,
+    calcular_total
+)
 
-def adicionar_gasto():
+def adicionar_gasto_menu():
     descricao = input("Digite a descrição do gasto: ")
-    valor = float(input("Digite o valor do gasto: "))
 
-    if valor < 0:
+    try:
+        valor = float(input("Digite o valor do gasto: "))
+    except ValueError:
         print("Valor inválido!")
         return
 
-    gastos.append({"descricao": descricao, "valor": valor})
-    print("Gasto adicionado com sucesso!")
+    data_gasto = input("Digite a data (AAAA-MM-DD): ")
 
-def listar_gastos():
+    adicionar_gasto(descricao, valor, data_gasto)
+
+    print("✅ Gasto adicionado com sucesso!")
+
+
+def listar_gastos_menu():
+    gastos = listar_gastos()
+
     if not gastos:
         print("Nenhum gasto registrado.")
         return
 
-    for i, gasto in enumerate(gastos):
-        print(f"{i} - {gasto['descricao']} | R$ {gasto['valor']}")
+    print("\n--- Lista de Gastos ---")
 
-def remover_gasto():
-    listar_gastos()
+    for gasto in gastos:
+        print(
+            f"ID: {gasto[0]} | "
+            f"Descrição: {gasto[1]} | "
+            f"Valor: R$ {gasto[2]} | "
+            f"Data: {gasto[3]}"
+        )
+
+
+def remover_gasto_menu():
+    listar_gastos_menu()
+
     try:
-        indice = int(input("Digite o índice do gasto para remover: "))
-        gastos.pop(indice)
-        print("Gasto removido!")
-    except Exception:
-        print("Índice inválido!")
+        id_gasto = int(input("\nDigite o ID do gasto para remover: "))
 
-def calcular_total():
-    total = sum(g["valor"] for g in gastos)
-    print(f"Total gasto: R$ {total}")
+        remover_gasto(id_gasto)
+
+        print("✅ Gasto removido!")
+
+    except ValueError:
+        print("ID inválido!")
+
+
+def calcular_total_menu():
+    total = calcular_total()
+
+    print(f"\n💰 Total gasto: R$ {total}")
+
 
 def menu():
     while True:
@@ -41,21 +68,27 @@ def menu():
         print("4. Ver total")
         print("0. Sair")
 
-        opcao = input("Escolha uma opção: ")
+        opcao = input("\nEscolha uma opção: ")
 
         if opcao == "1":
-            adicionar_gasto()
+            adicionar_gasto_menu()
+
         elif opcao == "2":
-            listar_gastos()
+            listar_gastos_menu()
+
         elif opcao == "3":
-            remover_gasto()
+            remover_gasto_menu()
+
         elif opcao == "4":
-            calcular_total()
+            calcular_total_menu()
+
         elif opcao == "0":
             print("Saindo...")
             break
+
         else:
             print("Opção inválida!")
+
 
 if __name__ == "__main__":
     menu()
